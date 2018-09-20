@@ -1,0 +1,37 @@
+﻿@using Blog.Models
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@model Category
+
+<h1>Editar Categoría</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id);
+
+    <br />
+    <br />
+   
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name)
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description)
+        @Html.TextBoxFor(x => x.Description)
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Active)
+        @Html.CheckBoxFor(x => x.Active)
+    </div>
+
+    <button type="submit">Aceptar</button>
+}
