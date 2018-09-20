@@ -1,24 +1,38 @@
-﻿using Blog.Models;
+﻿using Blog.Contrats;
+using Blog.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static Blog.Contrats.IServiceCategory;
 
 namespace Blog.Controllers
 {
     public class CategoryController : Controller
     {
-        private static IList<Category> categories = new List<Category>();
+    
+
+        private readonly IServicesCategories categoryService;
+        public CategoryController(IServicesCategories categoryService)
+        {
+            this.categoryService = categoryService; 
+        }
 
         public ActionResult Index()
         {
-            var ejemplo1 = new Category { Name = "Futbol", Active = true, Description = "Primera División Argentina", Id = 1 };
-            var ejemplo2 = new Category { Name = "Tenis", Active = true, Description = "Tenis Argentino", Id = 2 };
+            var categories = categoryService.GetCategories();
 
-            categories.Add(ejemplo1);
-            categories.Add(ejemplo2);
-            return View(categories);
+            IList<CategoryModel> categories1 = new List<CategoryModel>();
+
+            foreach (var cat in categories)
+            {
+                var creada = new CategoryModel { Id = cat.Id, Active = cat.Active, Description = cat.Description, Name = cat.Name };
+                categories1.Add(creada);
+            }
+
+
+            return View(categories1);
         }  
 
         public ActionResult Create()
@@ -27,44 +41,51 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Category model)
+        public ActionResult Create(CategoryModel model)
         {
             if (ModelState.IsValid)
             {
                 return View(model);
             }
 
-            model.Id = categories.Count + 1;
-            model.Active = true;
+            var category = new Category { Id = model.Id, Active = model.Active, Description = model.Description, Name = model.Name };
+            categoryService.SaveCategory(category);
 
-            categories.Add(model);
             return RedirectToAction("Index");
 
         }
 
-        public ActionResult Edit(int id)
-        {
-            var category = categories.Where(x => x.Id == id).First();
+        //public ActionResult Edit(int id)
+        //{
+        //    var category = categories.Where(x => x.Id == id).First();
 
-            return View(category); 
-        }
+        //    return View(category); 
+        //}
 
-        [HttpPost]
-        public ActionResult Edit (Category model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+        //[HttpPost]
+        //public ActionResult Edit (CategoryModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
 
-            var category = categories.Where(x => x.Id == model.Id).First();
+        //    var category = categories.Where(x => x.Id == model.Id).First();
 
-            category.Name = model.Name;
-            category.Description = model.Description;
-            category.Active = model.Active;
+        //    category.Name = model.Name;
+        //    category.Description = model.Description;
+        //    category.Active = model.Active;
 
-          
-            return RedirectToAction("Index");
-        }
+
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public ActionResult Delete (int id)
+        //{
+        //    var category = categories.Where(x => x.Id == id).Single();
+        //    categories.Remove(category); 
+        //    return RedirectToAction("Index");
+        //}
     }
 }

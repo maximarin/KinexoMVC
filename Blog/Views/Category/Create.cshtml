@@ -3,12 +3,12 @@
     ViewBag.Title = "Create";
 }
 
-@model Category
+@model CategoryModel
 
 @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "", role = "form" }))
 {
     @Html.HiddenFor(x => x.Id);
-    <br /> 
+    <br />
     <br />
 
     <div class="form-group">
@@ -30,7 +30,7 @@
     </div>
 
 
-        <button type="submit"> Crear </button>
+    <button type="submit"> Crear </button>
 }
 
 

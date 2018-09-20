@@ -1,0 +1,5 @@
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\Blog.DataAccess.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\Blog.DataAccess.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\obj\Debug\Blog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\obj\Debug\Blog.DataAccess.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\obj\Debug\Blog.DataAccess.pdb

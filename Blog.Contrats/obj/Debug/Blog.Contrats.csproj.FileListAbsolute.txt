@@ -1,0 +1,5 @@
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Contrats\bin\Debug\Blog.Contrats.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Contrats\bin\Debug\Blog.Contrats.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Contrats\obj\Debug\Blog.Contrats.csprojResolveAssemblyReference.cache
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Contrats\obj\Debug\Blog.Contrats.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Contrats\obj\Debug\Blog.Contrats.pdb

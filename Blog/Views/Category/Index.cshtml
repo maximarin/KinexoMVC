@@ -4,36 +4,45 @@
     ViewBag.Title = "Index";
 }
 
-@model IList<Category> 
+@model IList<CategoryModel>
 <h2>Categorias</h2>
 
-@Html.ActionLink("Crear nueva Categoria", "Create")
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+</head>
 
-<table id="grid-data" class="table table-condensed table-hover table-striped">
+<a class="popup btn btn-primary" href="/Category/Create" style="margin-bottom:20px; margin-top:20px;">Agregar Categoría</a>
+<table id="myDataTable" class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
             <th data-column-id="id" data-type="numeric">ID</th>
             <th data-column-id="sender">Nombre</th>
             <th data-column-id="received" data-order="desc">Descripción</th>
             <th data-column-id="link" data-formatter="link" data-sortable="false">Activa</th>
-        </tr> 
-
-       
-               @foreach (var category in Model)
-               {    
-                 <tr>
-                     <td>@category.Id</td>
-                     <td>@category.Name</td>
-                     <td>@category.Description</td>
-                     <td>@category.Active</td>
-                     <td>@Html.ActionLink("Editar", "Edit", new { id = category.Id })</td>
-                     <td>@Html.ActionLink("Eliminar", "")</td>
-
-                 </tr>
-                  
-               }
-
-       
+            <th data-column-id="link" data-formatter="link"> Editar </th>
+            <th data-column-id="link" data-formatter="link"> Eliminar </th>
+        </tr>
     </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.Name</td>
+            <td>@category.Description</td>
+            <td>@category.Active</td>
+            <td>@Html.ActionLink("Editar", "Edit", new { id = category.Id })</td>
+            <td>@Html.ActionLink("Eliminar", "Delete", new { id = category.Id }, new { onclick = "return confirm('Está seguro de eliminar la categoría?');" })</td>
+        </tr>
+        }
+</tbody>
 </table>
 
+@section scripts {
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myDataTable').DataTable();
+        });
+    </script>
+}
