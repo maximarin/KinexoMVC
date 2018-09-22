@@ -55,30 +55,27 @@ namespace Blog.Controllers
 
         }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    var category = categories.Where(x => x.Id == id).First();
+        public ActionResult Edit(int id)
+        {
+            var category = categoryService.SearchCategory(id); 
 
-        //    return View(category); 
-        //}
+            return View(new CategoryModel {Id = category.Id, Name = category.Name, Active = category.Active, Description = category.Description}); 
+        }
 
-        //[HttpPost]
-        //public ActionResult Edit (CategoryModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
+        [HttpPost]
+        public ActionResult Edit(CategoryModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-        //    var category = categories.Where(x => x.Id == model.Id).First();
+            var category = new Category { Id = model.Id, Active = model.Active, Description = model.Description, Name = model.Name };
 
-        //    category.Name = model.Name;
-        //    category.Description = model.Description;
-        //    category.Active = model.Active;
+            categoryService.EditCategory(category);
 
-
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
 
         //[HttpPost]
         //public ActionResult Delete (int id)
