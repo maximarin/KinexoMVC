@@ -38,6 +38,16 @@ namespace Blog.Controllers
         public ActionResult Create()
         {
             return View();
+        } 
+
+        public ActionResult Delete(int id)
+        {   
+            if (categoryService.DeleteCategory(id))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -76,6 +86,8 @@ namespace Blog.Controllers
 
             return RedirectToAction("Index");
         }
+
+
 
         //[HttpPost]
         //public ActionResult Delete (int id)
