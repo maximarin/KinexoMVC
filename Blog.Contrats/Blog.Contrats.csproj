@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="IServiceCategory.cs" />
-    <Compile Include="IServiceNews.cs" />
-    <Compile Include="News.cs" />
+    <Compile Include="IServiceNote.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

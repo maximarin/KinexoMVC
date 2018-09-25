@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Contrats
 {
-    public class News
+    public class Note
     {
         public int Id { get; set; }
 

@@ -1,16 +1,12 @@
 ﻿using Blog.Contrats;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Blog.Contrats.IServiceNews;
 
 namespace Blog.Services
 {
-    public class ServiceNews : IServicesNews
+    public class ServiceNote : IServicesNotes
     {
-        public bool Create(News post)
+        public bool Create(Note post)
         {
             throw new NotImplementedException();
         }
@@ -25,12 +21,12 @@ namespace Blog.Services
             throw new NotImplementedException();
         }
 
-        public List<News> GetNews()
+        public List<Note> GetNews()
         {
             throw new NotImplementedException();
         }
 
-        public News SearchNews(int id)
+        public Note SearchNews(int id)
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Blog.Models
 {
-    public class NewsModel
+    public class NoteModel
     {
         public int Id { get; set; }
 

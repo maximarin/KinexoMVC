@@ -8,13 +8,13 @@ namespace Blog.Contrats
 {
   public class IServiceNews
     { 
-      public  interface IServicesNews
+      public  interface IServicesNotes
         {
-            bool Create(News post);
+            bool Create(Note post);
             bool Edit(int id);
             bool Delete(int id);
-            List<News> GetNews();
-            News SearchNews(int id);
+            List<Note> GetNews();
+            Note SearchNews(int id);
         }
     }
 }

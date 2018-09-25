@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
-    public class NewsController : Controller
+    public class NoteController : Controller
     {
         
         public ActionResult Index()
@@ -26,7 +26,7 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(NewsModel model)
+        public ActionResult Create(NoteModel model)
         {   
             return RedirectToAction("Index");
         } 
