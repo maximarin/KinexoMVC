@@ -31,7 +31,6 @@ namespace Blog.Controllers
                 categories1.Add(creada);
             }
 
-
             return View(categories1);
         }  
 
@@ -87,14 +86,5 @@ namespace Blog.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-        //[HttpPost]
-        //public ActionResult Delete (int id)
-        //{
-        //    var category = categories.Where(x => x.Id == id).Single();
-        //    categories.Remove(category); 
-        //    return RedirectToAction("Index");
-        //}
     }
 }
