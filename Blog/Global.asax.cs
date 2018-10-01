@@ -11,6 +11,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Services.Description;
 using static Blog.Contrats.IServiceCategory;
+using static Blog.Contrats.IServiceNote;
 
 namespace Blog
 {
@@ -27,6 +28,7 @@ namespace Blog
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
             container.Register<IServicesCategories, ServiceCategory>(Lifestyle.Scoped);
+            container.Register<IServicesNotes, ServiceNote>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(System.Reflection.Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();

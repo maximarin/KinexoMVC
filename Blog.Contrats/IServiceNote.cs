@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Blog.Contrats
 {
-  public class IServiceNews
+  public class IServiceNote
     { 
       public  interface IServicesNotes
         {
             bool Create(Note post);
-            bool Edit(int id);
+            bool Edit(Note note);
             bool Delete(int id);
-            List<Note> GetNews();
-            Note SearchNews(int id);
+            List<Note> GetNotes();
+            Note SearchNotes(int id);
         }
     }
 }
