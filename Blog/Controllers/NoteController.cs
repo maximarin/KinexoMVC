@@ -46,6 +46,16 @@ namespace Blog.Controllers
             
         }
 
+        public ActionResult Delete(int id)
+        {
+            if (NoteService.Edit(NoteService.SearchNotes(id), true))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(NoteModel model)
@@ -84,7 +94,7 @@ namespace Blog.Controllers
             }; 
 
 
-            if (NoteService.Edit(note))
+            if (NoteService.Edit(note,false))
             {
                 return RedirectToAction("Index");
             }

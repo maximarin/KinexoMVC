@@ -11,8 +11,7 @@ namespace Blog.Contrats
       public  interface IServicesNotes
         {
             bool Create(Note post);
-            bool Edit(Note note);
-            bool Delete(int id);
+            bool Edit(Note note, bool delete);
             List<Note> GetNotes();
             Note SearchNotes(int id);
         }

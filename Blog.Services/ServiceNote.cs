@@ -1,4 +1,5 @@
 ﻿using Blog.Contrats;
+using Blog.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +9,99 @@ namespace Blog.Services
 {
     public class ServiceNote : IServicesNotes
     {
-        public static List<Note> listNotes = new List<Note>(); 
-
         public bool Create(Note post)
         {
-            var note = new Note { Id = post.Id, Active = true, Date = post.Date, Description = post.Description, IdCategory = post.IdCategory, Title = post.Title };
-            listNotes.Add(note); 
-           
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+
+            contex.Notes.Add(new Notes
+            {
+                Title = post.Title,
+                IdCategory = post.IdCategory,
+                Active = true,
+                Description = post.Description,
+                Date = post.Date
+
+            });
+
             return true;
         }
 
-        public bool Delete(int id)
+        public bool Edit(Note noteEdit, bool delete)
         {
-            throw new NotImplementedException();
-        }
+            BlogKinexoEntities contex = new BlogKinexoEntities();
 
-        public bool Edit(Note noteEdit)
-        {
-            
-            if(noteEdit != null)
+            Notes note = contex.Notes.Where(x => x.Id == noteEdit.Id && x.Active == true).FirstOrDefault();
+
+            if (delete == true && note != null)
             {
-                foreach (var item in listNotes)
+                note.Active = false;
+
+                contex.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+
+                if (note != null)
                 {
-                    if (item.Id == noteEdit.Id)
-                    {
-                        item.Date = noteEdit.Date;
-                        item.Title = noteEdit.Title;
-                        item.IdCategory = noteEdit.IdCategory;
-                        item.Description = noteEdit.Description;
-                        
-                    }
+                    note.Date = noteEdit.Date;
+                    note.Title = noteEdit.Title;
+                    note.IdCategory = noteEdit.IdCategory;
+                    note.Description = noteEdit.Description;
+                    note.Date = noteEdit.Date;
+
+                    return true;
                 }
+
+                return false;
             }
 
-            return true;
         }
+
 
         public List<Note> GetNotes()
         {
-            return listNotes;
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+            List<Note> notes = new List<Note>();
+
+            var listnotes = contex.Notes.Where(x => x.Active == true).ToList();
+
+            foreach (var item in listnotes)
+            {
+                notes.Add(new Note()
+                {
+                    Title = item.Title,
+                    Id = item.Id,
+                    Description = item.Description,
+                    Date = item.Date,
+                    Active = item.Active,
+                    IdCategory = item.IdCategory
+
+                });
+            }
+
+            return notes;
         }
 
         public Note SearchNotes(int id)
         {
-            var note = listNotes.Where(x => x.Id == id).FirstOrDefault();
+            BlogKinexoEntities contex = new BlogKinexoEntities();
 
-            if (note != null)
+            var noteSearch = contex.Notes.Where(x => x.Id == id && x.Active == true).FirstOrDefault();
+
+            Note note = (noteSearch == null) ? null : new Note()
             {
-                return note;
-            }
+                Title = noteSearch.Title,
+                Id = noteSearch.Id,
+                IdCategory = noteSearch.IdCategory,
+                Active = noteSearch.Active,
+                Date = noteSearch.Date,
+                Description = noteSearch.Description
+            };
 
             return note;
         }
     }
 }
+
