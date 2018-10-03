@@ -1,4 +1,5 @@
 ﻿using Blog.Contrats;
+using Blog.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,9 @@ namespace Blog.Services
 
         public bool EditCategory(Category catEdit)
         {
-            var categoryEdit = list.Where(x => x.Id == catEdit.Id).FirstOrDefault();
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+
+            var categoryEdit = contex.Categories.Where(x => x.Id == catEdit.Id).FirstOrDefault();
 
             //VALIDO SI EL ID EXISTE
             if (categoryEdit != null)
@@ -51,26 +54,59 @@ namespace Blog.Services
 
         public List<Category> GetCategories()
         {
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+            List<Category> Categories = new List<Category>();
 
-            var ejemplo1 = new Category { Name = "Futbol", Active = true, Description = "Primera División Argentina", Id = 1 };
-            var ejemplo2 = new Category { Name = "Tenis", Active = true, Description = "Tenis Argentino", Id = 2 };
-            list.Add(ejemplo1); list.Add(ejemplo2);
+            var CategoriesBD = contex.Categories.Where(x => x.Active == true);
 
-            return list; 
+            foreach (var item in CategoriesBD.ToList())
+            {
+                Categories.Add(new Category
+                {
+                    Name = item.Name,
+                    Id = item.Id,
+                    Active = item.Active,
+                    Description = item.Description
+
+                });
+
+            }
+
+            return Categories; 
 
         }
 
         public bool SaveCategory(Category category)
         {
-            category.Id = list.Count + 1;
-            list.Add(category);
-            return true;
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+
+            contex.Categories.Add(new Categories
+            {
+                Name = category.Name,
+                Description = category.Description,
+                Active = true
+
+            });
+
+            return true; 
+
         }
 
         public Category SearchCategory(int id)
         {
-            return list.Where(x => x.Id == id).FirstOrDefault(); 
+            BlogKinexoEntities contex = new BlogKinexoEntities();
 
+            var category = contex.Categories.Where(x => x.Id == id && x.Active == true).FirstOrDefault();
+
+            Category cat = (category == null) ? null : new Category()
+            {
+                Name = category.Name,
+                Description = category.Description,
+                Id = category.Id
+
+            };
+
+            return cat;
         }
     }
 }

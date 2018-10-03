@@ -25,8 +25,8 @@ namespace Blog.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Notes> Notes { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

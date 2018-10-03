@@ -20,5 +20,7 @@ namespace Blog.DataAccess
         public int IdCategory { get; set; }
         public System.DateTime Date { get; set; }
         public bool Active { get; set; }
+    
+        public virtual Categories Categories { get; set; }
     }
 }
