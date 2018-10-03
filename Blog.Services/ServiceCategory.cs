@@ -13,19 +13,6 @@ namespace Blog.Services
     {
         public static List<Category> list = new List<Category>();
 
-        public bool DeleteCategory(int id)
-        {
-            var categoryDelete = list.Where(x => x.Id == id).FirstOrDefault(); 
-            
-            if (categoryDelete != null)
-            {
-                list.Remove(categoryDelete);
-                return true;
-            }
-
-            return false;
-        }
-
         public bool EditCategory(Category catEdit)
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();

@@ -14,7 +14,6 @@ namespace Blog.Contrats
             List<Category> GetCategories();
             bool EditCategory(Category category);
             Category SearchCategory(int id);
-            bool DeleteCategory(int id);
 
         }
     }
