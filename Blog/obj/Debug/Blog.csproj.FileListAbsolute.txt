@@ -156,3 +156,11 @@ C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.Services.pdb
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\SimpleInjector.xml
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\SimpleInjector.Integration.Web.xml
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\SimpleInjector.Integration.Web.Mvc.xml
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.DataAccess.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.Services.dll.config
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.DataAccess.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.DataAccess.dll.config
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.xml
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.SqlServer.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.SqlServer.xml

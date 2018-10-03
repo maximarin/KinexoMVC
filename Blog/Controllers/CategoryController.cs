@@ -41,7 +41,7 @@ namespace Blog.Controllers
 
         public ActionResult Delete(int id)
         {   
-            if (categoryService.DeleteCategory(id))
+            if (categoryService.EditCategory(categoryService.SearchCategory(id), true))
             {
                 return RedirectToAction("Index");
             }
@@ -81,7 +81,7 @@ namespace Blog.Controllers
 
             var category = new Category { Id = model.Id, Active = model.Active, Description = model.Description, Name = model.Name };
 
-            categoryService.EditCategory(category);
+            categoryService.EditCategory(category,false);
 
             return RedirectToAction("Index");
         }

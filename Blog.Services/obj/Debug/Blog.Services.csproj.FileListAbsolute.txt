@@ -7,3 +7,9 @@ C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\Blog.Contrats.pdb
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\Blog.DataAccess.pdb
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\obj\Debug\Blog.Services.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\obj\Debug\Blog.Services.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\Blog.Services.dll.config
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\EntityFramework.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\Blog.DataAccess.dll.config
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\EntityFramework.xml
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\EntityFramework.SqlServer.xml
