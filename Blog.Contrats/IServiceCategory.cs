@@ -12,7 +12,7 @@ namespace Blog.Contrats
         {
             bool SaveCategory(Category category);
             List<Category> GetCategories();
-            bool EditCategory(Category category);
+            bool EditCategory(Category category, bool delete);
             Category SearchCategory(int id);
 
         }

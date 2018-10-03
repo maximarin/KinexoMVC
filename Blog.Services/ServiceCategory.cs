@@ -11,39 +11,42 @@ namespace Blog.Services
 {
     public class ServiceCategory : IServicesCategories
     {
-        public static List<Category> list = new List<Category>();
-
-        public bool EditCategory(Category catEdit)
+        public bool EditCategory(Category catEdit, bool delete)
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();
 
-            var categoryEdit = contex.Categories.Where(x => x.Id == catEdit.Id).FirstOrDefault();
+            Categories categoryEdit = contex.Categories.Where(x => x.Id == catEdit.Id).FirstOrDefault();
 
-            //VALIDO SI EL ID EXISTE
-            if (categoryEdit != null)
+            if (delete == true && categoryEdit != null )
             {
-                foreach (var item in list)
-                {
-                    if (item.Id == categoryEdit.Id)
-                    {
-                        item.Active = catEdit.Active;
-                        item.Description = catEdit.Description;
-                        item.Name = catEdit.Name;
-                        break;
-                    }
+                categoryEdit.Active = false;
+                contex.SaveChanges();
 
-                }
-                
                 return true;
             }
-            return false;
+            else
+            {
+                //VALIDO SI EL ID EXISTE
+                if (categoryEdit != null)
+                {
+                    categoryEdit.Description = catEdit.Description;
+                    categoryEdit.Name = catEdit.Name;
+
+                    contex.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
+            
         }
 
         public List<Category> GetCategories()
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();
             List<Category> Categories = new List<Category>();
-
+            
+            //Obtenemos solo las que no se encuentran eliminadas
             var CategoriesBD = contex.Categories.Where(x => x.Active == true);
 
             foreach (var item in CategoriesBD.ToList())
@@ -74,6 +77,8 @@ namespace Blog.Services
                 Active = true
 
             });
+
+            contex.SaveChanges();
 
             return true; 
 
