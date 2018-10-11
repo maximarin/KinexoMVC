@@ -164,3 +164,4 @@ C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\Blog.DataAccess.dll.config
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.xml
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.SqlServer.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\EntityFramework.SqlServer.xml
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache

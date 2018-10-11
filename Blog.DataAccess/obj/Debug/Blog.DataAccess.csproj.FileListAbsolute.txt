@@ -8,3 +8,13 @@ C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\EntityFramework.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\Blog.DataAccess.dll.config
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\Blog.DataAccess.dll
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\Blog.DataAccess.pdb
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.dll
+C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.pdb
