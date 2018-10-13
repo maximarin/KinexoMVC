@@ -7,6 +7,7 @@
 
 @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "", role = "form" }))
 {
+    @Html.AntiForgeryToken();
     @Html.HiddenFor(x => x.Id);
     <br />
     <br />

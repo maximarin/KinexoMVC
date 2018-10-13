@@ -50,6 +50,7 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CategoryModel model)
         {
             if (ModelState.IsValid)
@@ -72,6 +73,7 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(CategoryModel model)
         {
             if (!ModelState.IsValid)
