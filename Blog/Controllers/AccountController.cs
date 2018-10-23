@@ -62,7 +62,8 @@ namespace Blog.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        [CaptchaValidator(PrivateKey = "6LdBW3YUAAAAANWZkEhJmuh80ltquTgGV4zWSQuN", ErrorMessage = "Captcha inválido", RequiredMessage = "Verifique el Recaptcha")]
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl, bool captchaValid)
         {
             if (!ModelState.IsValid)
             {
