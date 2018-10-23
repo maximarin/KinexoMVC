@@ -265,7 +265,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -328,6 +330,10 @@
     <ProjectReference Include="..\Blog.Contrats\Blog.Contrats.csproj">
       <Project>{8bbf649c-3886-4937-8043-0942ac038218}</Project>
       <Name>Blog.Contrats</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.DataAccess\Blog.DataAccess.csproj">
+      <Project>{1B92D89D-8310-45D3-964E-0D12C4F6D20D}</Project>
+      <Name>Blog.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.Services\Blog.Services.csproj">
       <Project>{A0054B1C-7850-4077-B21F-DED4E4961472}</Project>

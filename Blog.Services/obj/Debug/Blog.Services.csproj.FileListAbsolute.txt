@@ -28,3 +28,5 @@ C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.Services\bin\Deb
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.Services\obj\Debug\Blog.Services.csprojResolveAssemblyReference.cache
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.Services\obj\Debug\Blog.Services.dll
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.Services\obj\Debug\Blog.Services.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.Services\bin\Debug\es\EntityFramework.SqlServer.resources.dll

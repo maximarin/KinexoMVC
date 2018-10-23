@@ -43,6 +43,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="IServiceCategory.cs" />
     <Compile Include="IServiceNote.cs" />
+    <Compile Include="IServiceUser.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

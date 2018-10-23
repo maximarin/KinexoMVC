@@ -9,16 +9,17 @@ using static Blog.Contrats.IServiceCategory;
 
 namespace Blog.Controllers
 {
+    [Authorize (Users= "marinmaximiliano99@gmail.com")]
     public class CategoryController : Controller
     {
     
-
         private readonly IServicesCategories categoryService;
         public CategoryController(IServicesCategories categoryService)
         {
             this.categoryService = categoryService; 
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var categories = categoryService.GetCategories();
@@ -39,6 +40,7 @@ namespace Blog.Controllers
             return View();
         } 
 
+       
         public ActionResult Delete(int id)
         {   
             if (categoryService.EditCategory(categoryService.SearchCategory(id), true))

@@ -18,3 +18,5 @@ C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\bin\D
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.dll
 C:\Users\maxi_\Downloads\KinexoMVC-master\KinexoMVC-master\Blog.DataAccess\obj\Debug\Blog.DataAccess.pdb
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog.DataAccess\bin\Debug\es\EntityFramework.SqlServer.resources.dll

@@ -9,6 +9,7 @@ using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
 {
+    [Authorize (Users = "marinmaximiliano99@gmail.com")]
     public class NoteController : Controller
     {
         private readonly IServicesNotes NoteService;
@@ -17,6 +18,7 @@ namespace Blog.Controllers
             this.NoteService = NoteService;
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var notes = NoteService.GetNotes();
