@@ -216,3 +216,4 @@ C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\es\EntityFramework.resources.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\es\EntityFramework.SqlServer.resources.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\maxi_\Desktop\ProyectoMVC\Blog\bin\reCAPTCHA.MVC.dll

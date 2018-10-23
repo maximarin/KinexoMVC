@@ -4,6 +4,7 @@ using Blog.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using reCAPTCHA.MVC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,7 +143,8 @@ namespace Blog.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        [CaptchaValidator(PrivateKey = "6LdBW3YUAAAAANWZkEhJmuh80ltquTgGV4zWSQuN", ErrorMessage ="Captcha inválido", RequiredMessage ="Campo Obligatorio")]
+        public async Task<ActionResult> Register(RegisterViewModel model,bool captchaValid)
         {
             if (ModelState.IsValid)
             {
