@@ -38,8 +38,6 @@ public partial class BlogKinexoEntities : DbContext
 
     public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
-    public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-
     public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
 
     public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }

@@ -240,7 +240,6 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Notes" EntitySet="Notes" />
           </AssociationSet>
-          <EntitySet Name="C__MigrationHistory" EntityType="BlogKinexoModel.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="BlogKinexoModel.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="BlogKinexoModel.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="BlogKinexoModel.AspNetUserLogins" />
@@ -258,16 +257,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
