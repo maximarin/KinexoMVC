@@ -1,8 +1,16 @@
 ﻿@model Blog.Models.NoteModel
 
+
 @{
     ViewBag.Title = "Edit";
 }
+
+<head>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+</head>
 
 <h2>Editar Nota</h2>
 
@@ -27,7 +35,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea id="summernote" name="editordata"></textarea> 
+                <textarea id="summernote" name="Description" ></textarea> 
+
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,8 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdCategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdCategory, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdCategory, "", new { @class = "text-danger" })
+                @Html.DropDownList("idCategory", (SelectList)ViewBag.Categories)
             </div>
         </div>
 
@@ -51,3 +59,9 @@
 <div>
     @Html.ActionLink("Volver", "Index")
 </div>
+@section scripts{
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script> $(document).ready(function () { $('#summernote').summernote(); }); </script>
+}

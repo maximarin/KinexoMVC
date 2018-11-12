@@ -22,7 +22,7 @@ namespace Blog.Services
                 Date = post.Date
 
             });
-
+            contex.SaveChanges();
             return true;
         }
 

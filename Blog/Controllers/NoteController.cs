@@ -1,10 +1,12 @@
 ﻿using Blog.Contrats;
 using Blog.Models;
+using Blog.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static Blog.Contrats.IServiceCategory;
 using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
@@ -13,9 +15,13 @@ namespace Blog.Controllers
     public class NoteController : Controller
     {
         private readonly IServicesNotes NoteService;
-        public NoteController(IServicesNotes NoteService)
+        private readonly IServicesCategories CategoryService;
+
+        
+        public NoteController(IServicesNotes NoteService, IServicesCategories CategoryService)
         {
             this.NoteService = NoteService;
+            this.CategoryService = CategoryService;
         }
 
         [AllowAnonymous]
@@ -32,17 +38,24 @@ namespace Blog.Controllers
             }
 
             return View(notes1);
-        } 
 
-        [ValidateInput(false)]
+            
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Categories = new SelectList(CategoryService.GetCategories().ToList(),
+                                               nameof(Category.Id), nameof(Category.Name));
             return View();
         } 
 
         public ActionResult Edit(int id)
         {
             var note = NoteService.SearchNotes(id);
+
+            ViewBag.Categories = new SelectList(CategoryService.GetCategories().ToList(),
+                                              nameof(Category.Id), nameof(Category.Name));
 
             return View(new NoteModel { Id= note.Id, Date = note.Date, Title = note.Title, Active = note.Active, Description= note.Description, IdCategory= note.IdCategory });
             

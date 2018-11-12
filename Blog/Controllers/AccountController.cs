@@ -158,8 +158,6 @@ namespace Blog.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                   var n= User.IsInRole("Comun");
-
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
