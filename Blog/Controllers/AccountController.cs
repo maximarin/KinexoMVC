@@ -2,6 +2,7 @@
 using Blog.DataAccess;
 using Blog.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using reCAPTCHA.MVC;
@@ -152,7 +153,8 @@ namespace Blog.Controllers
                 var user = new ApplicationUser { Name = model.Name, SurName = model.SurName,UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-
+                
+                
 
                 if (result.Succeeded)
                 {
@@ -163,7 +165,7 @@ namespace Blog.Controllers
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
-
+                    await UserManager.AddToRoleAsync(user.Id, "Comun");
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
