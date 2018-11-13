@@ -55,7 +55,7 @@ namespace Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CategoryModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }

@@ -11,7 +11,7 @@ using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
 {
-    [Authorize (Roles = "Administrador")]
+    [Authorize (Roles = "Administrador")]      //Solo el usuario admin puede accerder a todoas las funciones. 
     public class NoteController : Controller
     {
         private readonly IServicesNotes NoteService;
@@ -24,7 +24,7 @@ namespace Blog.Controllers
             this.CategoryService = CategoryService;
         }
 
-        [AllowAnonymous]
+        [AllowAnonymous]  // el index puede ser accedido por todos los usuarios 
         public ActionResult Index()
         {
             var notes = NoteService.GetNotes();
