@@ -67,13 +67,28 @@
           <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BlogKinexo.dbo.Comments' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Comments">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="IdNote" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Active" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdNote" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commentss">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdNote" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -96,14 +111,14 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Comments_Notes">
+        <Association Name="FK_Commentss_Notes">
           <End Role="Notes" Type="Self.Notes" Multiplicity="1" />
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <End Role="Commentss" Type="Self.Commentss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Notes">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Comments">
+            <Dependent Role="Commentss">
               <PropertyRef Name="IdNote" />
             </Dependent>
           </ReferentialConstraint>
@@ -183,12 +198,20 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commentss" EntityType="Self.Commentss" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Comments_Notes" Association="Self.FK_Comments_Notes">
+          <EntitySet Name="Comments" EntityType="Self.Comments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Comments].[Id] AS [Id], 
+    [Comments].[IdNote] AS [IdNote], 
+    [Comments].[Description] AS [Description], 
+    [Comments].[Active] AS [Active]
+    FROM [dbo].[Comments] AS [Comments]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Commentss_Notes" Association="Self.FK_Commentss_Notes">
             <End Role="Notes" EntitySet="Notes" />
-            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Commentss" EntitySet="Commentss" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -236,7 +259,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Notes_Categories" FromRole="Notes" ToRole="Categories" />
-          <NavigationProperty Name="Comments" Relationship="BlogKinexoModel.FK_Comments_Notes" FromRole="Notes" ToRole="Comments" />
+          <NavigationProperty Name="Commentss" Relationship="BlogKinexoModel.FK_Commentss_Notes" FromRole="Notes" ToRole="Commentss" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -284,10 +307,10 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="Comments" EntityType="BlogKinexoModel.Comments" />
-          <AssociationSet Name="FK_Comments_Notes" Association="BlogKinexoModel.FK_Comments_Notes">
+          <EntitySet Name="Commentss" EntityType="BlogKinexoModel.Commentss" />
+          <AssociationSet Name="FK_Commentss_Notes" Association="BlogKinexoModel.FK_Commentss_Notes">
             <End Role="Notes" EntitySet="Notes" />
-            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Commentss" EntitySet="Commentss" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AspNetRoles">
@@ -373,25 +396,24 @@
           <End Type="BlogKinexoModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="BlogKinexoModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
-        <EntityType Name="Comments">
+        <EntityType Name="Commentss">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="IdNote" />
-            <PropertyRef Name="Description" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="IdNote" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Notes" Relationship="BlogKinexoModel.FK_Comments_Notes" FromRole="Comments" ToRole="Notes" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Notes" Relationship="BlogKinexoModel.FK_Commentss_Notes" FromRole="Commentss" ToRole="Notes" />
         </EntityType>
-        <Association Name="FK_Comments_Notes">
+        <Association Name="FK_Commentss_Notes">
           <End Type="BlogKinexoModel.Notes" Role="Notes" Multiplicity="1" />
-          <End Type="BlogKinexoModel.Comments" Role="Comments" Multiplicity="*" />
+          <End Type="BlogKinexoModel.Commentss" Role="Commentss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Notes">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Comments">
+            <Dependent Role="Commentss">
               <PropertyRef Name="IdNote" />
             </Dependent>
           </ReferentialConstraint>
@@ -490,9 +512,10 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="BlogKinexoModel.Comments">
-              <MappingFragment StoreEntitySet="Comments">
+          <EntitySetMapping Name="Commentss">
+            <EntityTypeMapping TypeName="BlogKinexoModel.Commentss">
+              <MappingFragment StoreEntitySet="Commentss">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IdNote" ColumnName="IdNote" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

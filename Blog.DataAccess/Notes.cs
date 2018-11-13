@@ -22,7 +22,7 @@ public partial class Notes
     public Notes()
     {
 
-        this.Comments = new HashSet<Comments>();
+        this.Commentss = new HashSet<Commentss>();
 
     }
 
@@ -45,7 +45,7 @@ public partial class Notes
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Comments> Comments { get; set; }
+    public virtual ICollection<Commentss> Commentss { get; set; }
 
 }
 

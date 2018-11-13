@@ -11,7 +11,7 @@ using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
 {
-    [Authorize (Users = "marinmaximiliano99@gmail.com")]
+    [Authorize (Roles = "Administrador")]
     public class NoteController : Controller
     {
         private readonly IServicesNotes NoteService;

@@ -46,7 +46,7 @@ public partial class BlogKinexoEntities : DbContext
 
     public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
 
-    public virtual DbSet<Comments> Comments { get; set; }
+    public virtual DbSet<Commentss> Commentss { get; set; }
 
 }
 

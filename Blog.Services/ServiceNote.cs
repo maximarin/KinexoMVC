@@ -17,10 +17,11 @@ namespace Blog.Services
 
             if(note != null)
             {
-                contex.Comments.Add(new Comments
+                contex.Commentss.Add(new Commentss
                 {
                     IdNote = id,
                     Description = description
+                   
                 });
 
                 contex.SaveChanges();
@@ -84,6 +85,7 @@ namespace Blog.Services
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();
             List<Note> notes = new List<Note>();
+
 
             var listnotes = contex.Notes.Where(x => x.Active == true).ToList();
 
