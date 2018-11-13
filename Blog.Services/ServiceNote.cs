@@ -9,6 +9,26 @@ namespace Blog.Services
 {
     public class ServiceNote : IServicesNotes
     {
+        public bool AddCommentary(int id, string description)
+        {
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+
+            Notes note = contex.Notes.Where(x => x.Id == id && x.Active == true).FirstOrDefault(); 
+
+            if(note != null)
+            {
+                contex.Comments.Add(new Comments
+                {
+                    IdNote = id,
+                    Description = description
+                });
+
+                contex.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public bool Create(Note post)
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();

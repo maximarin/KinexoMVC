@@ -15,16 +15,18 @@ namespace Blog.DataAccess
 using System;
     using System.Collections.Generic;
     
-public partial class C__MigrationHistory
+public partial class Comments
 {
 
-    public string MigrationId { get; set; }
+    public int Id { get; set; }
 
-    public string ContextKey { get; set; }
+    public int IdNote { get; set; }
 
-    public byte[] Model { get; set; }
+    public string Description { get; set; }
 
-    public string ProductVersion { get; set; }
+
+
+    public virtual Notes Notes { get; set; }
 
 }
 

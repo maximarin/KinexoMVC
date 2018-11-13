@@ -18,6 +18,15 @@ using System;
 public partial class Notes
 {
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Notes()
+    {
+
+        this.Comments = new HashSet<Comments>();
+
+    }
+
+
     public int Id { get; set; }
 
     public string Title { get; set; }
@@ -33,6 +42,10 @@ public partial class Notes
 
 
     public virtual Categories Categories { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Comments> Comments { get; set; }
 
 }
 

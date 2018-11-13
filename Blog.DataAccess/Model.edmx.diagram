@@ -16,6 +16,8 @@
         <AssociationConnector Association="BlogKinexoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BlogKinexoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BlogKinexoModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="BlogKinexoModel.Comments" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="BlogKinexoModel.FK_Comments_Notes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
