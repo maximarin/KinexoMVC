@@ -1,32 +1,50 @@
-﻿@using Blog.Models
-
+﻿@model IEnumerable<Blog.Models.NoteModel>
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Index";
 }
-
-@model CategoryModel
-
-<h1>Editar Categoría</h1>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken();
-    @Html.HiddenFor(x => x.Id);
-
-    <br />
-    <br />
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.Name)
-        @Html.TextBoxFor(x => x.Name)
-        @Html.ValidationMessageFor(x => x.Name)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.Description)
-        @Html.TextBoxFor(x => x.Description)
-        @Html.ValidationMessageFor(x => x.Description)
-    </div>
-
-    <button type="submit">Aceptar</button>
-}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Crear Nota", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

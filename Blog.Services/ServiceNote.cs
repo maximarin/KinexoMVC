@@ -71,6 +71,7 @@ namespace Blog.Services
                     note.IdCategory = noteEdit.IdCategory;
                     note.Description = noteEdit.Description;
                     note.Date = noteEdit.Date;
+                    contex.SaveChanges();
 
                     return true;
                 }

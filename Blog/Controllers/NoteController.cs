@@ -11,7 +11,7 @@ using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
 {
-    [Authorize (Roles = "Administrador")]      //Solo el usuario admin puede accerder a todoas las funciones. 
+    [Authorize (Users= "marinmaximiliano99@gmail.com")]      //Solo el usuario admin puede accerder a todoas las funciones. 
     public class NoteController : Controller
     {
         private readonly IServicesNotes NoteService;
@@ -33,13 +33,27 @@ namespace Blog.Controllers
 
             foreach (var not in notes)
             {
-                var creada = new NoteModel { Id = not.Id, Active = true , Description = not.Description, Title = not.Title, Date = DateTime.Now , IdCategory = not.IdCategory };
+                var creada = new NoteModel { Id = not.Id, Active = true , Description = not.Description.ToString(), Title = not.Title, Date = Convert.ToDateTime(not.Date.ToString()), IdCategory = not.IdCategory };
                 notes1.Add(creada);
             }
 
             return View(notes1);
+        }
 
-            
+      
+        public ActionResult IndexAdmin()
+        {
+            var notes = NoteService.GetNotes();
+
+            IList<NoteModel> notes1 = new List<NoteModel>();
+
+            foreach (var not in notes)
+            {
+                var creada = new NoteModel { Id = not.Id, Active = true, Description = not.Description, Title = not.Title, Date = not.Date.Date, IdCategory = not.IdCategory };
+                notes1.Add(creada);
+            }
+
+            return View(notes1);
         }
 
         [HttpGet]
@@ -96,6 +110,7 @@ namespace Blog.Controllers
         } 
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit (NoteModel model)
         {
             var note = new Note()
@@ -103,11 +118,10 @@ namespace Blog.Controllers
                 Active = true,
                 Date = DateTime.Now,
                 Title = model.Title,
-                Description = model.Description,
+                Description = model.Description.ToString(),
                 Id = model.Id,
                 IdCategory = model.IdCategory
             }; 
-
 
             if (NoteService.Edit(note,false))
             {
@@ -116,5 +130,7 @@ namespace Blog.Controllers
 
             return RedirectToAction("Index");
         }
+
+       
     }
 }

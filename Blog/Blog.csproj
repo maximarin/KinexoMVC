@@ -216,6 +216,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\IndexNotes.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\Register.css" />
     <Content Include="favicon.ico" />
@@ -323,6 +324,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Note\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

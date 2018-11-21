@@ -1,0 +1,22 @@
+﻿body {
+}
+#titulo {
+    text-align: center;
+    font-family: Arial;
+    font-size: large;
+    font-weight: bold;
+    width: 400px;
+    margin: 20px auto;
+}
+.notas {
+    background-color: white;
+    margin-left: 200px;
+    margin-right: 200px;
+    box-shadow:  rgba(0,0,0,.05);
+    padding-right: 100px;
+    padding-left: 100px;
+}
+#fecha {
+   
+    margin-left: 800px;
+}

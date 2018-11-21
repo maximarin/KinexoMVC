@@ -42,11 +42,8 @@ namespace Blog.Controllers
 
        
         public ActionResult Delete(int id)
-        {   
-            if (categoryService.EditCategory(categoryService.SearchCategory(id), true))
-            {
-                return RedirectToAction("Index");
-            }
+        {
+            categoryService.EditCategory(categoryService.SearchCategory(id), true);
 
             return RedirectToAction("Index");
         }

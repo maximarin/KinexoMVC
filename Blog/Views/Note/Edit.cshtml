@@ -36,6 +36,7 @@
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <textarea id="summernote" name="Description"  ></textarea> 
+              
 
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
@@ -57,7 +58,7 @@
 }
 
 <div>
-    @Html.ActionLink("Volver", "Index")
+    @Html.ActionLink("Volver", "IndexAdmin")
 </div>
 @section scripts{
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
