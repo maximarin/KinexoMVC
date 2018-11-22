@@ -1,0 +1,30 @@
+﻿@model Blog.Models.NoteModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/IndexNotes.css" rel="stylesheet" />
+
+<div class="notas">
+    <br />
+    <br />
+    <center>
+        <p2 id="titulo">@Model.Title</p2>
+    </center>
+
+    <p3 id="fecha">@Model.Date</p3>
+
+    <p4 id="descripcion">@Html.Raw(Model.Description)</p4>
+
+    <br />
+
+    <br />
+    <div class="comentarios">
+        <p4 id="comentario" style="color: #FE3A00;">Comentarios</p4>
+        <br />
+        <input type="text" name="descripcion" />
+        <input type="submit"  value=" Comentar!"/>
+    </div>    
+
+    <br />
+</div>     

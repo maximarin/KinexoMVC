@@ -89,6 +89,7 @@ advertencia 6002: La tabla o vista 'BlogKinexo.dbo.Comments' no tiene definida n
           <Property Name="IdNote" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -405,6 +406,7 @@ advertencia 6002: La tabla o vista 'BlogKinexo.dbo.Comments' no tiene definida n
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Notes" Relationship="BlogKinexoModel.FK_Commentss_Notes" FromRole="Commentss" ToRole="Notes" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Commentss_Notes">
           <End Type="BlogKinexoModel.Notes" Role="Notes" Multiplicity="1" />
@@ -515,6 +517,7 @@ advertencia 6002: La tabla o vista 'BlogKinexo.dbo.Comments' no tiene definida n
           <EntitySetMapping Name="Commentss">
             <EntityTypeMapping TypeName="BlogKinexoModel.Commentss">
               <MappingFragment StoreEntitySet="Commentss">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IdNote" ColumnName="IdNote" />

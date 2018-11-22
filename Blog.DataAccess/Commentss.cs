@@ -26,6 +26,8 @@ public partial class Commentss
 
     public bool Active { get; set; }
 
+    public string IdUser { get; set; }
+
 
 
     public virtual Notes Notes { get; set; }

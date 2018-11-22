@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ServiceCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceComment.cs" />
     <Compile Include="ServiceNote.cs" />
     <Compile Include="ServiceUser.cs" />
   </ItemGroup>

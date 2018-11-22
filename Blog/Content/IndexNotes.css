@@ -15,8 +15,13 @@
     box-shadow:  rgba(0,0,0,.05);
     padding-right: 100px;
     padding-left: 100px;
+   
 }
 #fecha {
    
     margin-left: 800px;
+}
+#comentario {
+    font-family: Arial;
+    font-size: 20px;
 }

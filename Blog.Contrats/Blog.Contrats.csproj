@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="IServiceCategory.cs" />
+    <Compile Include="IServiceComment.cs" />
     <Compile Include="IServiceNote.cs" />
     <Compile Include="IServiceUser.cs" />
     <Compile Include="Note.cs" />

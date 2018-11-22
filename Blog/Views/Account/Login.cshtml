@@ -2,7 +2,8 @@
 @using reCAPTCHA.MVC;
 @model LoginViewModel
 @{
-    ViewBag.Title = "Iniciar sesión";
+        ViewBag.Title = "Iniciar sesión";
+    
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -31,9 +32,12 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-10">
-                        @Html.Recaptcha()
-                        @Html.ValidationMessage("ReCaptcha")   
+                        <center>
+                            @Html.Recaptcha()
+                            @Html.ValidationMessage("ReCaptcha")
+                        </center>
                     </div>
+                    
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

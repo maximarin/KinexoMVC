@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NoteModel.cs" />
@@ -325,6 +326,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Note\IndexAdmin.cshtml" />
+    <Content Include="Views\Note\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

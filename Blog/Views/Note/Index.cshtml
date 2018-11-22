@@ -18,9 +18,19 @@ Listado de Notas
             
             <p3 id="fecha">@item.Date</p3>
             
-            <p4 id="descripcion">@Html.Raw(item.Description)</p4>           
+            <p4 id="descripcion">@Html.Raw(item.Description)</p4>     
+            
+            <br />
+             
+            @Html.ActionLink("Leer Más", "Details", new { id = item.Id})
+
+
+            <br />
+            <br />  
         </div>     
+        
     }
+
 
     
 </div>

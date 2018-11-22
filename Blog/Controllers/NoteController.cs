@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using static Blog.Contrats.IServiceCategory;
+using static Blog.Contrats.IServiceComment;
 using static Blog.Contrats.IServiceNote;
 
 namespace Blog.Controllers
@@ -16,12 +17,13 @@ namespace Blog.Controllers
     {
         private readonly IServicesNotes NoteService;
         private readonly IServicesCategories CategoryService;
-
+      
         
         public NoteController(IServicesNotes NoteService, IServicesCategories CategoryService)
         {
             this.NoteService = NoteService;
             this.CategoryService = CategoryService;
+           
         }
 
         [AllowAnonymous]  // el index puede ser accedido por todos los usuarios 
@@ -39,7 +41,15 @@ namespace Blog.Controllers
 
             return View(notes1);
         }
+        
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Details(int id)
+        {
+            var note = NoteService.SearchNotes(id);
 
+            return View(new NoteModel { Id = note.Id, Date = note.Date, Title = note.Title, Active = note.Active, Description = note.Description, IdCategory = note.IdCategory });
+        }
       
         public ActionResult IndexAdmin()
         {
@@ -131,6 +141,6 @@ namespace Blog.Controllers
             return RedirectToAction("Index");
         }
 
-       
+
     }
 }
