@@ -30,7 +30,7 @@
                 <td>@Html.Raw(@note.Description)</td>
                 <td>@note.Date</td>
                 <td>@Html.ActionLink("Detalles", "Details", new { id = note.Id })</td>
-                
+                <td>@Html.ActionLink("Eliminar", "Delete", new { id = note.Id }, new { onclick = "return confirm('Está seguro de eliminar la nota?');" })</td>
             </tr>
         }
     </tbody>

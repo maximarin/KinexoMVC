@@ -10,7 +10,7 @@ namespace Blog.Contrats
     {
         public interface IServicesUsers
         {
-            void AssingRole(int idUser); 
+            User GetUser(string id); 
         }
     }
 }

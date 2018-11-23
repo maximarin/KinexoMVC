@@ -85,7 +85,7 @@ advertencia 6002: La tabla o vista 'BlogKinexo.dbo.Comments' no tiene definida n
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdNote" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />

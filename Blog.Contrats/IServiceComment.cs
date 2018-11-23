@@ -11,6 +11,9 @@ namespace Blog.Contrats
         public interface IServicesComments
         {
             bool AddComment(Comment comment);
+            List<Comment> GetComments();
+            bool Edit(Comment comment, bool delete);
+            Comment SearchComment(int id);
         }
             
     }

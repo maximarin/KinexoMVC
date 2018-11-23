@@ -1,4 +1,5 @@
-﻿using Blog.Services;
+﻿using Blog.Contrats;
+using Blog.Services;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
@@ -13,6 +14,7 @@ using System.Web.Services.Description;
 using static Blog.Contrats.IServiceCategory;
 using static Blog.Contrats.IServiceComment;
 using static Blog.Contrats.IServiceNote;
+using static Blog.Contrats.IServiceUser;
 
 namespace Blog
 {
@@ -31,6 +33,7 @@ namespace Blog
             container.Register<IServicesCategories, ServiceCategory>(Lifestyle.Scoped);
             container.Register<IServicesNotes, ServiceNote>(Lifestyle.Scoped);
             container.Register<IServicesComments, ServiceComment>(Lifestyle.Scoped);
+            container.Register<IServicesUsers, ServiceUser>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(System.Reflection.Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();

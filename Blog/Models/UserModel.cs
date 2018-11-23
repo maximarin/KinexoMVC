@@ -18,12 +18,7 @@ namespace Blog.Models
         [Display(Name = "Apellido")]
         [Required]
         [MaxLength(50)]
-        public string UserName { get; set; }
-
-        [Display(Name = "Usuario")]
-        [Required]
-        [MaxLength(50)]
-        public string Nick { get; set; }
+        public string SurName { get; set; }
 
         [Display(Name = "Dirección de email")]
         [Required]

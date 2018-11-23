@@ -193,6 +193,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
@@ -330,6 +331,8 @@
     <Content Include="Views\Note\Comment.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Note\Search.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

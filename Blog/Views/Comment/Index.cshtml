@@ -1,0 +1,49 @@
+﻿@using Blog.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IList<CommentModel>
+<h2>Comentarios</h2>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+</head>
+
+<table id="myDataTable" class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th data-column-id="id" data-type="numeric">ID</th>
+            <th data-column-id="sender">Usuario</th>
+            <th data-column-id="received" data-order="desc">Descripción</th>
+            <th data-column-id="link" data-formatter="link"> Editar </th>
+            <th data-column-id="link" data-formatter="link"> Eliminar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@comment.Id</td>
+                <td>@comment.IdUser</td>
+                <td>@Html.Raw(@comment.Description)</td>
+                <td>@Html.ActionLink("Editar", "Edit", new { id = comment.Id })</td>
+                <td>@Html.ActionLink("Eliminar", "Delete", new { id = comment.Id }, new { onclick = "return confirm('Está seguro de eliminar el comentario?');" })</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts {
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myDataTable').DataTable();
+        });
+    </script>
+}
+
