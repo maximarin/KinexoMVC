@@ -16,7 +16,7 @@ namespace Blog.Models
         public string Title { get; set; }
 
         [Display(Name = "Descripción")]
-        [MaxLength(700)]
+        [MaxLength(1000000)]
         [Required]
         public string Description { get; set; }
 
@@ -29,6 +29,8 @@ namespace Blog.Models
 
         public bool Active { get; set; }
 
-        //agregar referencia al usuario que la crea.
+        public List<CommentModel> Commments { get; set; }
+
+      
     }
 }

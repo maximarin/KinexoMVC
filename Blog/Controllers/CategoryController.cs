@@ -19,7 +19,7 @@ namespace Blog.Controllers
             this.categoryService = categoryService; 
         }
 
-        [AllowAnonymous]
+       
         public ActionResult Index()
         {
             var categories = categoryService.GetCategories();
@@ -63,7 +63,8 @@ namespace Blog.Controllers
             return RedirectToAction("Index");
 
         }
-
+        
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var category = categoryService.SearchCategory(id); 

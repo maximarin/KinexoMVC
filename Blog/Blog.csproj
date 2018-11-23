@@ -217,6 +217,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Index.css" />
     <Content Include="Content\IndexNotes.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\Register.css" />
@@ -289,7 +290,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Note\Create.cshtml" />
     <Content Include="Views\Note\Index.cshtml" />
@@ -327,6 +327,9 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Note\IndexAdmin.cshtml" />
     <Content Include="Views\Note\Details.cshtml" />
+    <Content Include="Views\Note\Comment.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Note\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

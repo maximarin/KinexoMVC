@@ -20,5 +20,7 @@ namespace Blog.Contrats
 
         public bool Active { get; set; }
 
+        public List<Comment> Comments { get; set; }
+
     }
 }

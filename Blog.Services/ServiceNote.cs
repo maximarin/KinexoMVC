@@ -9,27 +9,6 @@ namespace Blog.Services
 {
     public class ServiceNote : IServicesNotes
     {
-        public bool AddCommentary(int id, string description)
-        {
-            BlogKinexoEntities contex = new BlogKinexoEntities();
-
-            Notes note = contex.Notes.Where(x => x.Id == id && x.Active == true).FirstOrDefault(); 
-
-            if(note != null)
-            {
-                contex.Commentss.Add(new Commentss
-                {
-                    IdNote = id,
-                    Description = description
-                   
-                });
-
-                contex.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-
         public bool Create(Note post)
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();
@@ -112,6 +91,21 @@ namespace Blog.Services
             BlogKinexoEntities contex = new BlogKinexoEntities();
 
             var noteSearch = contex.Notes.Where(x => x.Id == id && x.Active == true).FirstOrDefault();
+            var comments = new List<Commentss>();
+            comments = contex.Commentss.Where(x => x.IdNote == id).ToList();
+            var listComments = new List<Comment>();
+
+            foreach (var item in comments)
+            {
+                var comment = new Comment();
+                comment.Active = item.Active;
+                comment.Description = item.Description;
+                comment.Id = item.Id;
+                comment.IdNote = item.IdNote;
+                comment.IdUser = item.IdUser;
+
+                listComments.Add(comment);
+            }
 
             Note note = (noteSearch == null) ? null : new Note()
             {
@@ -120,7 +114,9 @@ namespace Blog.Services
                 IdCategory = noteSearch.IdCategory,
                 Active = noteSearch.Active,
                 Date = noteSearch.Date,
-                Description = noteSearch.Description
+                Description = noteSearch.Description,
+                Comments = listComments
+
             };
 
             return note;

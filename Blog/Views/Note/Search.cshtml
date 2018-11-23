@@ -1,0 +1,46 @@
+﻿@using Blog.Models
+
+
+@{
+    ViewBag.Title = "Search";
+}
+
+@model IList<NoteModel>
+<h2>Buscar Notas</h2>
+
+<head>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+</head>
+
+<table id="myDataTable" class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th data-column-id="Title" data-type="desc">Tiutlo</th>
+            <th data-column-id="received" data-order="desc">Descripción</th>
+            <th data-column-id="date" data-order="desc">Fecha Creación</th>
+            <th data-column-id="link" data-formatter="link"> Detalles </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Title</td>
+                <td>@Html.Raw(@note.Description)</td>
+                <td>@note.Date</td>
+                <td>@Html.ActionLink("Detalles", "Details", new { id = note.Id })</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts {
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myDataTable').DataTable();
+        });
+    </script>
+}
+

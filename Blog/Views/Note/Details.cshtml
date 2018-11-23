@@ -5,6 +5,8 @@
 }
 <link href="~/Content/IndexNotes.css" rel="stylesheet" />
 
+@Html.HiddenFor(model => model.Id) 
+
 <div class="notas">
     <br />
     <br />
@@ -22,8 +24,15 @@
     <div class="comentarios">
         <p4 id="comentario" style="color: #FE3A00;">Comentarios</p4>
         <br />
-        <input type="text" name="descripcion" />
-        <input type="submit"  value=" Comentar!"/>
+        @foreach (var item in Model.Commments)
+        {
+            @Html.TextAreaFor(x => item.Description, htmlAttributes: new { style = "width: 100%; max-width: 100%;" })
+            <br />
+        }
+        
+        
+        @Html.ActionLink("Añadir comentario", "Comment", new {@id= Model.Id})
+        
     </div>    
 
     <br />

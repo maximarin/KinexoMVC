@@ -11,6 +11,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Services.Description;
 using static Blog.Contrats.IServiceCategory;
+using static Blog.Contrats.IServiceComment;
 using static Blog.Contrats.IServiceNote;
 
 namespace Blog
@@ -29,6 +30,7 @@ namespace Blog
 
             container.Register<IServicesCategories, ServiceCategory>(Lifestyle.Scoped);
             container.Register<IServicesNotes, ServiceNote>(Lifestyle.Scoped);
+            container.Register<IServicesComments, ServiceComment>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(System.Reflection.Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();
