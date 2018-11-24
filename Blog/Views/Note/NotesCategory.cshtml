@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Blog.Models.NoteModel>
+
+@{
+    ViewBag.Title = "NotesCategory";
+}
+
+<h2>Listado de Notas</h2>
+
+<link href="~/Content/IndexNotes.css" rel="stylesheet" />
+
+Listado de Notas
+
+<div class="lista">
+
+    @foreach (var item in Model)
+    {
+        <div class="notas">
+            <center>
+                <p2 id="titulo">@item.Title</p2>
+            </center>
+
+            <p3 id="fecha">@item.Date</p3>
+
+            <p4 id="descripcion">@Html.Raw(item.Description)</p4>
+
+            <br />
+
+            @Html.ActionLink("Leer Más", "Details", new { id = item.Id })
+
+
+            <br />
+            <br />
+        </div>
+
+    }
+
+
+
+</div>
+

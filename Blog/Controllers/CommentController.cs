@@ -9,7 +9,7 @@ using static Blog.Contrats.IServiceComment;
 
 namespace Blog.Controllers
 {
-    [Authorize(Users = "marinmaximiliano99@gmail.com")]
+    [Authorize(Roles ="Administrador")]
     public class CommentController : Controller
     {
         private readonly IServicesComments CommentService;

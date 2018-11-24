@@ -86,6 +86,30 @@ namespace Blog.Services
             return notes;
         }
 
+        public List<Note> GetNotesCategory(int id)
+        {
+            BlogKinexoEntities contex = new BlogKinexoEntities();
+            List<Note> notes = new List<Note>();
+
+            var listnotes = contex.Notes.Where(x => x.Active == true && x.IdCategory == id).ToList();
+
+            foreach(var item in listnotes)
+            {
+                notes.Add(new Note()
+                {
+                    Title = item.Title,
+                    Id = item.Id,
+                    Description = item.Description,
+                    Date = item.Date,
+                    Active = item.Active,
+                    IdCategory = item.IdCategory
+
+                });
+            }
+
+            return notes;
+        }
+
         public Note SearchNotes(int id)
         {
             BlogKinexoEntities contex = new BlogKinexoEntities();

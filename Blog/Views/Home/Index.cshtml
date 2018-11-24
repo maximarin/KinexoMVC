@@ -1,6 +1,10 @@
-﻿@{
+﻿@using Blog.Models
+
+@{
     ViewBag.Title = "Home Page";
 }
+
+@model IList<CategoryModel>
 
 <link href="~/Content/Index.css" rel="stylesheet" />
 
@@ -15,13 +19,24 @@
             de jugadores, horarios, equipos, selecciones, ligas de diferentes países). Tenis (Grand Slam 2018, jugadores, ranking actualizado, Copa Davis). Todas
             las novidades sobre los juegos Olímpicos de la Juventud, llevados a cabo en nuestro país y mucho más.
         </p4>
+
+        <div class="Categorias">
+            <center>
+                <h4 id="categoria">Categorias</h4>
+
+                    @Html.ActionLink("Selección Argentina", "NotesCategory", "Note", new {  id = 4 })
+                    <br />
+                    @Html.ActionLink("Fútbol Argentino", "NotesCategory", "Note", new { id = 1 })
+                
+            </center>
+        </div>
+
     </center>
 
-</div>
-        <div class="Categorias">
-            <h4 id="categoria">Categorias</h4>
 
-        </div>
+</div>
+
+
 
 
 

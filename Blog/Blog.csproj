@@ -333,6 +333,7 @@
     <Content Include="Views\Note\Search.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Note\NotesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

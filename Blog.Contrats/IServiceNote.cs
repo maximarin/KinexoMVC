@@ -14,7 +14,7 @@ namespace Blog.Contrats
             bool Edit(Note note, bool delete);
             List<Note> GetNotes();
             Note SearchNotes(int id);
-            
+            List<Note> GetNotesCategory(int id);
         }
     }
 }
